@@ -1,0 +1,145 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@section Styles{
+    @Styles.Render("~/Bundles/css")
+}
+
+@section scripts{
+    @Scripts.Render("~/Bundles/Scripts")
+
+    <script type="text/javascript">
+       function showError(jqXHR) {
+           alert(jqXHR.status + ': ' + jqXHR.statusText);
+       }
+
+       function Login() {
+           $.ajax({
+               type: 'GET',
+               url: '/api/Account/ExternalLogins?returnUrl=%2F&generateState=true',
+               contentType: 'application/json; charset=utf-8'
+           }).done(function (data) {
+               window.location.assign(data[0].Url);
+           }).fail(function () { alert("FAIL"); });
+       }
+
+       $(function () {
+           var getLogins = document.getElementById("getLogins");
+           var registerUserName = document.getElementById("registerUserName");
+           var tokenKey = 'accessToken';
+
+           if (window.location.hash) {
+               // Fragment exists
+               var hash = window.location.hash.split("#access_token=")[1];               
+               var cleanhash = hash.split("&")[0];
+               var loginData = {
+                   token: hash
+               };
+
+               sessionStorage.setItem(tokenKey, cleanhash);
+
+               $.ajax({
+                   headers: { "Authorization": "bearer " + sessionStorage.getItem(tokenKey) },
+                   type: 'GET',
+                   url: '/api/Account/UserInfo',
+               }).done(function (data) {
+                   if (data.HasRegistered === false) {
+                       //$("#notRegistered").removeClass("hidden");
+
+                       $("#registerModal").modal({
+                           'show': true,
+                           'backdrop' : 'static'
+                           });
+                   }
+               }).fail(showError);
+
+
+           } else {
+               // Fragment doesn't exist
+           }
+
+           getLogins.addEventListener("click", function () {
+               Login();
+           });
+
+           registerUserName.addEventListener("click", function () {
+               var userInfo = {
+                   "Email": $("#email").val(),
+                   "UserName": $("#username").val()
+               }
+
+               $.ajax({
+                   headers: { "Authorization": "bearer " + sessionStorage.getItem(tokenKey) },
+                   type: 'POST',
+                   url: '/api/Account/RegisterExternal',
+                   data: userInfo
+
+               }).done(function (data) {
+                   $("#modalSuccess").removeClass("hidden");
+
+                   setTimeout(function () {
+                       $("#registerModal").modal('hide');
+                   }, 1000)
+
+                   setTimeout(function () {
+                       Login();
+                   }, 1100)
+                   
+               }).fail(function (data) {
+                   $("#modalError").html(data.Message);
+                   $("#modalError").removeClass("hidden");
+               });
+           })
+
+       });
+    </script>
+}
+
+<div class="row">
+    <div class="col-lg-2 col-centered">
+        <div class="form-group">
+            <label for="getLogins">Logga in</label>
+            <input type="button" class="btn btn-default form-control" id="getLogins" value="Facebook" />
+        </div>
+    </div>
+</div>
+
+<div id="notRegistered" class="row hidden">
+    <div class="col-lg-2 col-centered">
+
+    </div>
+</div>
+
+<div id="registerModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Registrera en användare</h4>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-info">En användare kunde inte hittas, vänligen registera din användare</div>
+                
+                <div id="modalError" class="hidden alert alert-danger">
+                </div>
+                
+                <div id="modalSuccess" class="hidden alert alert-success">
+                    Användaren är nu registrerad!
+                </div>
+
+                <div class="form-group">
+                    <label for="email">epost</label>
+                    <input type="text" class="form-control" id="email" />
+                    <label for="username">användarnamn</label>
+                    <input type="text" class="form-control" id="username" />                    
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Stäng</button>
+                <button id="registerUserName" type="button" class="btn btn-primary">Registrera</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

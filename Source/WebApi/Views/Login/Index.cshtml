@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@section scripts{
+   <script type="text/javascript">
+       function showError(jqXHR) {
+           self.result(jqXHR.status + ': ' + jqXHR.statusText);
+       }
+
+       $(function () {
+           var tokenKey = 'accessToken';
+
+           var loginButton = document.getElementById("submitLoginInformation");
+
+           loginButton.addEventListener("click", function () {
+               var loginData = {
+                   grant_type: 'password',
+                   username: document.getElementById("usernameText").value,
+                   password: document.getElementById("passwordText").value
+               };
+
+               $.ajax({
+                   type: 'POST',
+                   url: '/Token',
+                   data: loginData
+               }).done(function (data) {
+                   self.user(data.userName);
+                   // Cache the access token in session storage.
+                   sessionStorage.setItem(tokenKey, data.access_token);
+               }).fail(showError);
+           });
+       });
+
+</script> 
+}
+
+<div class="row">
+    
+    <div class="row">
+        <p>Användarnamn</p>
+        <input class="form-control" id="usernameText" type="text" />
+    </div>
+    <div class="row">
+        <p>Lösenord</p>
+        <input class="form-control" id="passwordText" type="text" />
+    </div>
+    <div class="row">
+         <input class="btn btn-default" id="submitLoginInformation" type="button" value="Login" />
+    </div>
+</div>
