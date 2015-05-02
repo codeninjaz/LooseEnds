@@ -3,17 +3,17 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 
 module.exports = {
-    //Delar upp genererad js i två filer, en för tredjeparts moduler (vendor) och en för min kod (app)
+    //Delar upp genererad js i två filer, en för tredjeparts moduler (vendor) och en för egen kod (app)
     entry: {
         app: [
             'webpack-dev-server/client?http://localhost:8090',
             'webpack/hot/dev-server',
             './src/app.js'
         ],
-        vendor: ['react']
+        vendor: ['react','d3']
     },
     //Skapa source maps för js filerna så att dev-tools kan länka till rätt källkod
-    devtool: 'source-map',
+    devtool: '#eval-source-map',
     //Lägg saker default i dist mappen, döp rot js till app.js och se till att sökvägar i genererad kod läggs under ./
     output: {
         path: path.resolve('./dist'),
@@ -57,6 +57,7 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js', Infinity),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
+        new webpack.IgnorePlugin(/vertx/),
         new HtmlWebpackPlugin({
             title: 'Calendar test',
             template: 'src/index.html',

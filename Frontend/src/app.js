@@ -1,35 +1,22 @@
 import React from 'react';
-import Ctrl from './components/controllerview1';
-import OtherPage from './components/controllerview2';
 import Circular from './components/circular';
 import Router from 'react-router';
-import BS from 'react-bootstrap';
-import RBS from 'react-router-bootstrap';
 
-require('./styles/bootstrap.min.css');
 require('./styles/font-awesome.min.css');
 require('./styles/style.scss');
 
 //Application root, handles routing
-var DefaultRoute = Router.DefaultRoute;
-// var NotFoundRoute = Router.NotFoundRoute;
-// var Link = Router.Link;
-var Route = Router.Route;
-var RouteHandler = Router.RouteHandler;
-var Redirect = Router.Redirect;
-    // <Route name="about" handler={About} />
-    // <Route name="users" handler={Users}>
-    //   <Route name="recent-users" path="recent" handler={RecentUsers} />
-    //   <Route name="user" path="/user/:userId" handler={User} />
-    //   <NotFoundRoute handler={UserRouteNotFound}/>
-    // </Route>
+let DefaultRoute = Router.DefaultRoute;
+// let NotFoundRoute = Router.NotFoundRoute;
+// let Link = Router.Link;
+let Route = Router.Route;
+let RouteHandler = Router.RouteHandler;
+let Redirect = Router.Redirect;
 
-var routes = (
+let routes = (
   <Route handler={App} path="/">
-    <Route name="ctrl" handler={Ctrl} />
-    <Route name="other" handler={OtherPage} />
     <Route name="circular" handler={Circular} />
-    <DefaultRoute handler={Ctrl} />
+    <DefaultRoute handler={Circular} />
     <Redirect from="home" to="/" />
   </Route>
 );

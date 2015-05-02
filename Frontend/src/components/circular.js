@@ -6,13 +6,20 @@ export default class Chart extends React.Component{
       super();
       this.myCircle = new d3Circle();
     }
+    getChartState() {
+      return {
+        data: this.props.data,
+        domain: this.props.domain,
+        bgcolor: this.props.bgcolor
+      };
+    }
     componentDidMount(){
       var el=React.findDOMNode(this);
-      this.myCircle.create(el)
+      this.myCircle.create(el, this.props, this.getChartState())
     }
     render(){
       return(
-        <div className="circle" width="300" height="300" backgroundColor="#E43232"></div>
+        <div className="circle"></div>
       )
     }
 }
