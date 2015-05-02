@@ -32,6 +32,9 @@ module.exports = {
             test: /\.css$/,
             loader: 'style!css'
         }, {
+            test: /\.(scss|sass)$/,
+            loader: 'style!css!sass'
+        }, {
             test: /\.(jpe?g|png|gif|svg)$/i,
             loader: 'image?name=images/[name].[ext]&optimizationLevel=7&interlaced=false'
         }, {

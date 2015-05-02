@@ -1,5 +1,6 @@
 import React from 'react';
 import Circular from './components/circular';
+import SvgTest from './components/svgtest';
 import Router from 'react-router';
 
 require('./styles/font-awesome.min.css');
@@ -16,6 +17,7 @@ let Redirect = Router.Redirect;
 let routes = (
   <Route handler={App} path="/">
     <Route name="circular" handler={Circular} />
+    <Route name="svg" handler={SvgTest} />
     <DefaultRoute handler={Circular} />
     <Redirect from="home" to="/" />
   </Route>

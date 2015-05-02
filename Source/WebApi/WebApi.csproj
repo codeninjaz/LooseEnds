@@ -296,9 +296,7 @@
     <Content Include="Views\Admin\Users.cshtml" />
     <Content Include="Views\Shared\_LeftMenu.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Frontend\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Content\Fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\Fonts\glyphicons-halflings-regular.ttf" />
