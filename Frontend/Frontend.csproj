@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{D5A60456-2A20-4BE9-A1D7-79A4F2C54362}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptToolsVersion>1.0</TypeScriptToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <ApplicationInsightsResourceId>/subscriptions/916bda9c-2cf1-4b2d-8346-ca7931c820d0/resourcegroups/Default-ApplicationInsights-CentralUS/providers/microsoft.insights/components/Frontend</ApplicationInsightsResourceId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+    <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="build\**\*.*" />
+    <Content Include="docs\**\*.*" />
+    <Content Include="src\app.js" />
+    <Content Include="src\assets\apple-touch-icon-precomposed.png" />
+    <Content Include="src\assets\browserconfig.xml" />
+    <Content Include="src\assets\crossdomain.xml" />
+    <Content Include="src\assets\favicon.ico" />
+    <Content Include="src\assets\humans.txt" />
+    <Content Include="src\assets\robots.txt" />
+    <Content Include="src\assets\tile-wide.png" />
+    <Content Include="src\assets\tile.png" />
+    <Content Include="src\components\chart.js" />
+    <Content Include="src\components\controllerview1.js" />
+    <Content Include="src\components\controllerview2.js" />
+    <Content Include="src\components\imagelist.js" />
+    <Content Include="src\components\listitem.js" />
+    <Content Include="src\components\menu.js" />
+    <Content Include="src\components\Navbar.jsx" />
+    <Content Include="src\components\NavbarSpec.jsx" />
+    <Content Include="src\components\renderview1.js" />
+    <Content Include="src\components\renderview2.js" />
+    <Content Include="src\constants.js" />
+    <Content Include="src\d3components\d3chart.js" />
+    <Content Include="src\data\datastore1.js" />
+    <Content Include="src\fonts\fontawesome-webfont.svg" />
+    <Content Include="src\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="src\images\logo-small.png" />
+    <Content Include="src\images\logo-small%402x.png" />
+    <Content Include="src\index.html" />
+    <Content Include="src\layouts\Default.jsx" />
+    <Content Include="src\pages\404.html" />
+    <Content Include="src\pages\Home.jsx" />
+    <Content Include="src\pages\index.html" />
+    <Content Include="src\pages\Privacy.jsx" />
+    <Content Include="src\styles\.csscomb.json" />
+    <Content Include="src\styles\.csslintrc" />
+    <Content Include="src\styles\bootstrap.less" />
+    <Content Include="src\styles\bootstrap.min.css" />
+    <Content Include="src\styles\font-awesome.css" />
+    <Content Include="src\styles\font-awesome.min.css" />
+    <Content Include="src\styles\jumbotron.less" />
+    <Content Include="src\styles\mixins.less" />
+    <Content Include="src\styles\navbar.less" />
+    <Content Include="src\styles\utilities.less" />
+    <Content Include="src\styles\variables.less" />
+    <Content Include=".editorconfig" />
+    <Content Include=".jshintrc" />
+    <Content Include="gulpfile.js" />
+    <Content Include="package.json" />
+    <Content Include="README.txt" />
+    <Content Include="srv.js" />
+    <Content Include="test\generate.js" />
+    <Content Include="webpack.config.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="obj\Debug\build.force" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\Frontend.csprojResolveAssemblyReference.cache" />
+    <Content Include="src\fonts\1942-report.zip" />
+    <Content Include="src\fonts\1942.ttf" />
+    <Content Include="src\fonts\fontawesome-webfont.eot" />
+    <Content Include="src\fonts\fontawesome-webfont.ttf" />
+    <Content Include="src\fonts\fontawesome-webfont.woff" />
+    <Content Include="src\fonts\fontawesome-webfont.woff2" />
+    <Content Include="src\fonts\FontAwesome.otf" />
+    <Content Include="src\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="src\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="src\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="src\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="src\styles\style.scss" />
+    <Content Include="test\inventory.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Net" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".jscsrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApplicationInsights.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>Frontend</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>6279</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:6279/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>
