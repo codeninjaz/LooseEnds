@@ -23,6 +23,8 @@ namespace WebApi.Models
 
         public string Author { get; set; }
 
+        public DateTime Published { get; set; }
+
         public string[] UpVotedBy { get; set; }
 
         public string[] DownVotedBy { get; set; }

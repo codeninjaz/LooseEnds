@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FizzWare.NBuilder;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,6 +10,19 @@ namespace WebApi.Business
 {
     public class DummyStore : DataStoreBase
     {
+        public override StoriesBase Stories
+        {
+            get
+            {
+                return new DummyStories();
+            }
+
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public override StoryBase Story
         {
             get
@@ -27,21 +41,15 @@ namespace WebApi.Business
     {
         public override Story Get(Guid guid)
         {
-            return new Story()
-            {
-                StoryGuid = Guid.NewGuid(),
-                Author = "Johan",
-                DownVotedBy = new[] { "Anders", "Micke" },
-                UpVotedBy = new[] { "Jesus" },
-                EastStoryGuid = Guid.NewGuid(),
-                WestStoryGuid = Guid.NewGuid(),
-                NorthStoryGuid = Guid.NewGuid(),
-                SouthStoryGuid = Guid.NewGuid(),
-                Keywords = new[] { "Jebuz", "Hell" },
-                ParentStory = Guid.NewGuid(),
-                StoryText = "Storytext, lorem ipsum and so on",
-                Title = "This Title is awesome!!!"
-            };
+            return Builder<Story>.CreateNew().With(x => x.Title = "Dummytitle").Build();
+        }
+    }
+
+    public class DummyStories : StoriesBase
+    {
+        public override List<Stories> Top(int value)
+        {
+            return Builder<Stories>.CreateListOfSize(value).All().With(x => x.Title = "Dummytitle").Build().ToList();
         }
     }
 }

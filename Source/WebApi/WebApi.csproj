@@ -42,6 +42,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FizzWare.NBuilder">
+      <HintPath>..\..\packages\NBuilder.3.0.1.1\lib\FizzWare.NBuilder.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -218,11 +221,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\DataStoreBase.cs" />
+    <Compile Include="Interfaces\StoriesBase.cs" />
     <Compile Include="Interfaces\StoryBase.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Graph.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\Stories.cs" />
+    <Compile Include="Models\StoriesViewModels.cs" />
     <Compile Include="Models\Story.cs" />
     <Compile Include="Models\StoryViewModels.cs" />
     <Compile Include="Models\UsersViewModel.cs" />
