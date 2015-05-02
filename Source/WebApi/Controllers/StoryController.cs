@@ -13,7 +13,7 @@ namespace WebApi.Controllers
     {        
         public StoryViewModel Get(Guid guid)
         {
-            var story = Store.Instance.GetStory(guid);
+            var story = Store.Instance.Story.Get(guid);
             if (story == null) throw new HttpResponseException(HttpStatusCode.NotFound);
 
             return ViewModelFactory.Get(story);

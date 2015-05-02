@@ -9,9 +9,17 @@ namespace WebApi.Business
 {
     public class SqlStore : DataStoreBase
     {
-        public override Story GetStory(Guid guid)
+        public override StoryBase Story
         {
-            throw new NotImplementedException();
+            get
+            {
+                throw new NotImplementedException();
+            }
+
+            set
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }

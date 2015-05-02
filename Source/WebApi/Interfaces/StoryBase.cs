@@ -6,8 +6,8 @@ using WebApi.Models;
 
 namespace WebApi.Interfaces
 {
-    public abstract class DataStoreBase
+    public abstract class StoryBase
     {
-        public abstract StoryBase Story { get; set; }
+        public abstract Story Get(Guid guid);
     }
 }
