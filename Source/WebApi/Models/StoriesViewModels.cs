@@ -22,5 +22,7 @@ namespace WebApi.Models
         public int NumberOfStories { get; set; }
 
         public DateTime LastActivity { get; set; }
+
+        public GraphRootViewModel GraphRoot { get; set; }
     }
 }

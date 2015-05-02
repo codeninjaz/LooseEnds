@@ -9,5 +9,7 @@ namespace WebApi.Interfaces
     public abstract class StoriesBase
     {
         public abstract List<Stories> Top(int value);
+
+        public abstract GraphRoot Graph(Guid value);
     }
 }

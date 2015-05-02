@@ -47,6 +47,11 @@ namespace WebApi.Business
 
     public class DummyStories : StoriesBase
     {
+        public override GraphRoot Graph(Guid value)
+        {
+            return Builder<GraphRoot>.CreateNew().Build();
+        }
+
         public override List<Stories> Top(int value)
         {
             return Builder<Stories>.CreateListOfSize(value).All().With(x => x.Title = "Dummytitle").Build().ToList();

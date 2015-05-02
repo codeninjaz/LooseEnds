@@ -9,13 +9,12 @@ using WebApi.Models;
 
 namespace WebApi.Controllers
 {
-    public class StoriesController : ApiController
+    public class GraphController : ApiController
     {
-        public List<StoriesViewModel> Get()
+        public GraphRootViewModel Get(Guid guid)
         {
-            var stories = Store.Instance.Stories.Top(10);
-            return ViewModelFactory.Get(stories);
+            var graph = Store.Instance.Stories.Graph(guid);
+            return ViewModelFactory.Get(graph);
         }
-
     }
 }
