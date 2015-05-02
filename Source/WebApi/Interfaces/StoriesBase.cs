@@ -6,10 +6,10 @@ using WebApi.Models;
 
 namespace WebApi.Interfaces
 {
-    public abstract class DataStoreBase
+    public abstract class StoriesBase
     {
-        public abstract StoryBase Story { get; set; }
+        public abstract List<Stories> Top(int value);
 
-        public abstract StoriesBase Stories { get; set; }
+        public abstract GraphRoot Graph(Guid value);
     }
 }

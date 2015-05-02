@@ -7,7 +7,7 @@ using WebApi.Models;
 
 namespace WebApi.Business
 {
-    public class SqlStore : DataStoreBase
+    /*public class SqlStore : DataStoreBase
     {
         public override StoryBase Story
         {
@@ -21,5 +21,5 @@ namespace WebApi.Business
                 throw new NotImplementedException();
             }
         }
-    }
+    }*/
 }
