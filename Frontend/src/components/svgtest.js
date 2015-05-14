@@ -53,7 +53,8 @@ export default class SvgTest extends React.Component{
         <svg xmlns   ="http://www.w3.org/2000/svg"
              width   ="500"
              height  ="500"
-             viewBox ="0 0 100 100">
+             viewBox ="0 0 100 100"
+             fill="#EFEFEF">
           <circle className={cl} cx="50" cy="50" r={this.state.radius} fill="#3BAAFF" onClick={this.handleClick.bind(this)}/>
           {this.state.on ? this.makeRandomCircles():null}
         </svg>
